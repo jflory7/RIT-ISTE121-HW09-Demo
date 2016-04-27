@@ -6,10 +6,10 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 
 /**
  * HelloWorld.java
@@ -42,11 +42,8 @@ public class HelloWorld {
      */
     public HelloWorld() {
         try {
-            BufferedReader in = new BufferedReader(new FileReader(FILE_NAME));
-            System.out.println("Reading in one line of " + FILE_NAME + ":\n" +
-                    in.readLine());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            List<String> fileContents = Files.readAllLines(Paths.get(FILE_NAME));
+            for (String s : fileContents) System.out.println(s);
         } catch (IOException e) {
             e.printStackTrace();
         }

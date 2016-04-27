@@ -1,1 +1,3 @@
 This is a text file that could be read into the program.
+This file actually has multiple lines now.
+How might we read these? Thankfully, PR #1 has the answer.
